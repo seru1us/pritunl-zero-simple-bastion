@@ -21,7 +21,7 @@ emergency
 $PTZ_ROLE
 EOF
 tee /etc/ssh/trusted << EOF
-ssh-rsa $TRUSTED_PUBKEY
+$TRUSTED_PUBKEY
 EOF
 
 /usr/sbin/sshd -D -f /etc/ssh/sshd_config
