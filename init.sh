@@ -8,10 +8,13 @@ TRUSTED_PUBKEY=$(curl $TP_URL)
 sed -i '/^TrustedUserCAKeys/d' /etc/ssh/sshd_config
 sed -i '/^AuthorizedPrincipalsFile/d' /etc/ssh/sshd_config
 tee -a /etc/ssh/sshd_config << EOF
+
 ChallengeResponseAuthentication no
 PasswordAuthentication no
 TrustedUserCAKeys /etc/ssh/trusted
 AuthorizedPrincipalsFile /etc/ssh/principals
+UsePAM no
+
 EOF
 tee /etc/ssh/principals << EOF
 emergency
