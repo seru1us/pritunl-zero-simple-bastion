@@ -17,4 +17,5 @@ tee /etc/ssh/trusted << EOF
 ssh-rsa $TRUSTED_PUBKEY
 EOF
 
+/usr/bin/ssh-keygen -A
 /usr/sbin/sshd -D -f /etc/ssh/sshd_config
