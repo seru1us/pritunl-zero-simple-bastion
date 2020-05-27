@@ -2,6 +2,9 @@
 
 TRUSTED_PUBKEY=$(curl $TP_URL)
 
+ls -l /etc/sshd
+ls -l /etc/ssh
+
 sed -i '/^TrustedUserCAKeys/d' /etc/ssh/sshd_config
 sed -i '/^AuthorizedPrincipalsFile/d' /etc/ssh/sshd_config
 tee -a /etc/ssh/sshd_config << EOF
