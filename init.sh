@@ -1,5 +1,7 @@
 #!/bin/bash
 
+useradd bastion
+
 TRUSTED_PUBKEY=$(curl $TP_URL)
 
 sed -i '/^TrustedUserCAKeys/d' /etc/ssh/sshd_config
