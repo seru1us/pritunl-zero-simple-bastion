@@ -1,7 +1,8 @@
 #!/bin/bash
 
+chmod +x /bin/press_to_exit.sh
 useradd bastion
-#usermod --shell /bin/press_to_exit.sh bastion
+usermod --shell /bin/press_to_exit.sh bastion
 
 /usr/bin/ssh-keygen -A
 
