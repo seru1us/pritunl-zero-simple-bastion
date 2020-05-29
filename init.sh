@@ -1,6 +1,8 @@
 #!/bin/bash
 
 useradd bastion
+usermod --shell /bin/press_to_exit.sh bastion
+
 /usr/bin/ssh-keygen -A
 
 TRUSTED_PUBKEY=$(curl $TP_URL)
@@ -18,7 +20,6 @@ ClientAliveInterval 120
 ClientAliveCountMax 240
 X11Forwarding no
 AllowAgentForwarding no
-ForceCommand /bin/false
 
 EOF
 tee /etc/ssh/principals << EOF
