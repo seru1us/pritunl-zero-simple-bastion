@@ -1,7 +1,7 @@
 #!/bin/bash
 
 useradd bastion
-usermod --shell /bin/press_to_exit.sh bastion
+#usermod --shell /bin/press_to_exit.sh bastion
 
 /usr/bin/ssh-keygen -A
 
@@ -16,10 +16,10 @@ PasswordAuthentication no
 TrustedUserCAKeys /etc/ssh/trusted
 AuthorizedPrincipalsFile /etc/ssh/principals
 UsePAM no
-ClientAliveInterval 120
-ClientAliveCountMax 240
-X11Forwarding no
-AllowAgentForwarding no
+#ClientAliveInterval 120
+#ClientAliveCountMax 240
+#X11Forwarding no
+#AllowAgentForwarding no
 
 EOF
 tee /etc/ssh/principals << EOF
