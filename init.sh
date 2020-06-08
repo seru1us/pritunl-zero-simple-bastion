@@ -31,4 +31,4 @@ tee /etc/ssh/trusted << EOF
 $TRUSTED_PUBKEY
 EOF
 
-/usr/sbin/sshd -D -f /etc/ssh/sshd_config
+/usr/sbin/sshd -e -D -f /etc/ssh/sshd_config
