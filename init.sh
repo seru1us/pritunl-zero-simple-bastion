@@ -31,4 +31,6 @@ tee /etc/ssh/trusted << EOF
 $TRUSTED_PUBKEY
 EOF
 
+python3 -m http.server &
+
 /usr/sbin/sshd -e -D -f /etc/ssh/sshd_config
