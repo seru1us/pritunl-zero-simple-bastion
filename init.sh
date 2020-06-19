@@ -13,7 +13,7 @@ echo "$BASTION_SSH_HOST_ED25519_KEY_PUB" > /etc/ssh/ssh_host_ed25519_key.pub
 #chmod 600 $HOME/.ssh/id*
 #chmod 600 /etc/ssh/ssh_host*
 #/usr/bin/ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519
-#cat /etc/ssh/ssh_host_ed25519_key*
+cat /etc/ssh/ssh_host_ed25519_key*
 
 TRUSTED_PUBKEY=$(curl $TP_URL)
 
