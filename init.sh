@@ -10,13 +10,8 @@ echo "$BASTION_ID_RSA" > $HOME/.ssh/id_rsa
 echo "$BASTION_ID_RSA_PUB" > $HOME/.ssh/id_rsa.pub
 echo "$BASTION_SSH_HOST_ED25519_KEY" > /etc/ssh/ssh_host_ed25519_key
 echo "$BASTION_SSH_HOST_ED25519_KEY_PUB" > /etc/ssh/ssh_host_ed25519_key.pub
-echo "$BASTION_SSH_HOST_ED25519_KEY"
-echo "$BASTION_SSH_HOST_ED25519_KEY_PUB"
-#chmod 600 $HOME/.ssh/id*
-#chmod 600 /etc/ssh/ssh_host*
-#/usr/bin/ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519
-ls -la /etc/ssh/
-cat /etc/ssh/ssh_host_ed25519_key*
+chmod 600 $HOME/.ssh/id*
+chmod 600 /etc/ssh/ssh_host*
 
 TRUSTED_PUBKEY=$(curl $TP_URL)
 
