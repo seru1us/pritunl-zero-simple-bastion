@@ -20,6 +20,7 @@ sed -i '/^AuthorizedPrincipalsFile/d' /etc/ssh/sshd_config
 tee -a /etc/ssh/sshd_config << EOF
 
 AllowAgentForwarding no
+AllowTcpForwarding yes
 AllowUsers bastion
 AuthorizedPrincipalsFile /etc/ssh/principals
 ChallengeResponseAuthentication no
