@@ -4,14 +4,10 @@ chmod +x /bin/press_to_exit.sh
 useradd bastion
 usermod --shell /bin/press_to_exit.sh bastion
 
-/usr/bin/ssh-keygen -A -v
 mkdir -p $HOME/.ssh/
 rm -rf /etc/ssh/ssh_host_*
-#echo "$BASTION_ID_RSA" > $HOME/.ssh/id_rsa
-#echo "$BASTION_ID_RSA_PUB" > $HOME/.ssh/id_rsa.pub
-echo "$BASTION_SSH_HOST_ED25519_KEY" > /etc/ssh/ssh_host_ed25519_key
-echo "$BASTION_SSH_HOST_ED25519_KEY_PUB" > /etc/ssh/ssh_host_ed25519_key.pub
-chmod 600 $HOME/.ssh/id*
+
+echo -e "$BASTION_SSH_HOST_ED25519_KEY" > /etc/ssh/ssh_host_ed25519_key
 chmod 600 /etc/ssh/ssh_host*
 
 TRUSTED_PUBKEY=$(curl $TP_URL)
@@ -31,7 +27,7 @@ ClientAliveInterval 120
 HostKey /etc/ssh/ssh_host_ed25519_key
 PasswordAuthentication no
 TrustedUserCAKeys /etc/ssh/trusted
-UsePAM no
+#UsePAM no
 X11Forwarding no
 
 EOF
@@ -39,6 +35,7 @@ tee /etc/ssh/principals << EOF
 emergency
 $PTZ_ROLE
 EOF
+
 tee /etc/ssh/trusted << EOF
 $TRUSTED_PUBKEY
 EOF
