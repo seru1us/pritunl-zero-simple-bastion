@@ -1,4 +1,5 @@
-FROM 137112412989.dkr.ecr.us-east-1.amazonaws.com/amazonlinux:latest
+#FROM 137112412989.dkr.ecr.us-east-1.amazonaws.com/amazonlinux:latest
+FROM amazonlinux:latest
 
 RUN yum update -y
 RUN yum install -y openssh openssh-server python3
