@@ -17,6 +17,7 @@ TRUSTED_PUBKEY=$(curl $TP_URL)
 
 sed -i '/^TrustedUserCAKeys/d' /etc/ssh/sshd_config
 sed -i '/^AuthorizedPrincipalsFile/d' /etc/ssh/sshd_config
+rm -rf /etc/ssh/sshd_config
 tee -a /etc/ssh/sshd_config << EOF
 
 AllowAgentForwarding no
