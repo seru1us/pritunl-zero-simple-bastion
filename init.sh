@@ -27,6 +27,7 @@ ClientAliveInterval 120
 HostKey /etc/ssh/ssh_host_ed25519_key
 PasswordAuthentication no
 TrustedUserCAKeys /etc/ssh/trusted
+UsePAM no
 X11Forwarding no
 
 EOF
