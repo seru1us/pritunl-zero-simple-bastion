@@ -1,10 +1,8 @@
 #!/bin/bash
 
 chmod +x /bin/press_to_exit.sh
-useradd bastion
-usermod --shell /bin/press_to_exit.sh bastion
+useradd -s /bin/press_to_exit.sh -p $(date +%s | sha256sum | base64 | head -c 32) bastion
 
-mkdir -p $HOME/.ssh/
 rm -rf /etc/ssh/ssh_host_*
 
 echo -e "$BASTION_SSH_HOST_ED25519_KEY" > /etc/ssh/ssh_host_ed25519_key
@@ -27,7 +25,7 @@ ClientAliveInterval 120
 HostKey /etc/ssh/ssh_host_ed25519_key
 PasswordAuthentication no
 TrustedUserCAKeys /etc/ssh/trusted
-UsePAM no
+#UsePAM no
 X11Forwarding no
 
 EOF
